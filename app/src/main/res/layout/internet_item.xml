@@ -1,118 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:elevation="8dp">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/internet_image"
-        android:layout_width="60dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="4dp"
-        android:contentDescription="@string/title"
-        android:scaleType="fitCenter"
-        android:src="@mipmap/ic_launcher"
-        app:layout_constraintStart_toEndOf="@id/internet_book_number"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-    <TextView
-        android:id="@+id/internet_book_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="4dp"
-        android:text="@string/title"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/internet_image"
-        app:layout_constraintTop_toTopOf="parent" />
+        <variable
+            name="result"
+            type="com.ore.internetreader.Result" />
 
-    <TextView
-        android:id="@+id/internet_artist_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="@string/writer"
-        android:textColor="#000000"
-        android:textStyle="italic"
-        app:layout_constraintStart_toStartOf="@+id/internet_book_title"
-        app:layout_constraintTop_toBottomOf="@+id/internet_book_title" />
+        <variable
+            name="genre"
+            type="com.ore.internetreader.Genre" />
+    </data>
 
-    <TextView
-        android:id="@+id/internet_genre_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="@string/genre"
-        android:textColor="#000000"
-        android:textStyle="italic"
-        app:layout_constraintStart_toStartOf="@+id/internet_artist_name"
-        app:layout_constraintTop_toBottomOf="@+id/internet_artist_name" />
-
-    <TextView
-        android:id="@+id/internet_release_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="@string/release_date"
-        android:textColor="#000000"
-        android:textStyle="italic"
-        app:layout_constraintStart_toStartOf="@+id/internet_genre_name"
-        app:layout_constraintTop_toBottomOf="@+id/internet_genre_name" />
-
-    <View
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item"
         android:layout_width="match_parent"
-        android:layout_height="0.4dp"
-        android:layout_marginTop="6dp"
-        android:background="@android:color/background_dark"
-        android:backgroundTint="#000000"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/internet_release_date" />
-
-    <Button
-        android:id="@+id/internet_button_view"
-        android:layout_width="85dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:elevation="4dp"
-        android:textColor="#ffffff"
-        android:text="@string/view_book"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/internet_button_buy"
-        android:layout_width="80dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:elevation="4dp"
-        android:text="@string/buy_book2"
-        android:textColor="#ffffff"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/internet_button_view"
-        app:layout_constraintTop_toBottomOf="@+id/internet_button_view" />
-
-    <TextView
-        android:id="@+id/internet_book_number"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:text="@string/number"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="12dp"
+        android:background="#FFFFFF"
+        android:elevation="8dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/internet_image"
+            android:layout_width="118dp"
+            android:layout_height="162dp"
+            android:contentDescription="@string/title"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.484" />
+
+        <TextView
+            android:id="@+id/internet_book_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/open_sans"
+            android:text="@{result.name}"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/internet_image"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Book Title" />
+
+        <TextView
+            android:id="@+id/internet_artist_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text='@{"by " + result.artistName}'
+            android:textColor="#000000"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/internet_book_title"
+            app:layout_constraintTop_toBottomOf="@+id/internet_book_title"
+            tools:text='Artist Name' />
+
+        <TextView
+            android:id="@+id/internet_genre_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="#000000"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/internet_artist_name"
+            app:layout_constraintTop_toBottomOf="@+id/internet_artist_name"
+            tools:text="Genre" />
+
+        <TextView
+            android:id="@+id/internet_release_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:text='@{"released " + result.releaseDate}'
+            android:textColor="#000000"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/internet_genre_name"
+            app:layout_constraintTop_toBottomOf="@+id/internet_genre_name"
+            tools:text='Release Date' />
+
+        <Button
+            android:id="@+id/internet_button_view"
+            android:layout_width="85dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="16dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:elevation="4dp"
+            android:text="@string/view_book"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/internet_image"
+            app:layout_constraintTop_toBottomOf="@+id/internet_release_date"
+            app:layout_constraintVertical_bias="0.24000001" />
+
+        <Button
+            android:id="@+id/internet_button_buy"
+            android:layout_width="80dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="16dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:elevation="4dp"
+            android:text="@string/buy_book2"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/internet_button_view"
+            app:layout_constraintStart_toEndOf="@+id/internet_button_view" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -14,8 +14,6 @@ import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var obj: String
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -38,12 +36,8 @@ class MainActivity : AppCompatActivity() {
                 val gson = GsonBuilder().create()
                 val feed = gson.fromJson(body, AppleFeed::class.java)
 
-//                val json = Json(JsonConfiguration.Stable)
-//                val appleStuff = json.parse(AppleFeed.serializer(), body!!)
-
-
                 runOnUiThread {
-                    main_recycler_view.adapter = MainRecyclerViewAdapter(feed)
+                    main_recycler_view.adapter = MainRecyclerViewAdapter(feed, this@MainActivity)
                 }
             }
 
