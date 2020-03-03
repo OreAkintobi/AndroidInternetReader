@@ -10,7 +10,7 @@ Databinding is also enabled and used.
 
 ## Installation
 
-Go [here](https://drive.google.com/open?id=14S3jM0d4RsGSzNMZht6c6eiPw-a3MrNp) to download apk (Android Devices).
+Go [here](https://drive.google.com/open?id=1-_nREgCO253c5baDiSBld_PkyEW57Mce) to download apk (Android Devices).
 
 
 ## Contributing
