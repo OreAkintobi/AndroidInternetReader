@@ -9,4 +9,5 @@
     <string name="buy_book2">Buy this Book</string>
     <string name="number">No.</string>
     <string name="book_by">by ${result.artistName}</string>
+    <string name="failure_message">Failed to Display Results. Please check your internet connection and restart the app.</string>
 </resources>

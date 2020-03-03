@@ -1,6 +1,7 @@
 package com.ore.internetreader
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.GsonBuilder
@@ -43,6 +44,11 @@ class MainActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call, e: IOException) {
                 println("Failed to Execute ${e.printStackTrace()}")
+
+                runOnUiThread {
+                    main_recycler_view.visibility = View.GONE
+                    main_text_view.visibility = View.VISIBLE
+                }
             }
         })
     }

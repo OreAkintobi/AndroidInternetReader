@@ -50,7 +50,7 @@ class MainRecyclerViewAdapter(private val feed: AppleFeed, private var context: 
     }
 }
 
-class CustomViewHolder(var binding: InternetItemBinding) :
+class CustomViewHolder(private val binding: InternetItemBinding) :
     RecyclerView.ViewHolder(binding.root) {
     fun bind(item: Result) {
         binding.result = item
